@@ -1,2 +1,2 @@
 # RPGBrowserGame
-Personal RPG Browser game for friends
+Personal browser RPG for friends
