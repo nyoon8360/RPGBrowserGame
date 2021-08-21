@@ -46,7 +46,6 @@ export default class MainMenu extends Phaser.Scene
         this.StartButton.setStyle({ fill: '#27ff00'})
 
         //gets playerUUID from local storage. if not found, generates new UUID and sends to server to check if new UUID is not already taken.
-        //todo- if new UUID is sent to server, implement listener to receive whether new UUID was accepted or not and then attempt to connect with new UUID.
         var playerUUID = localStorage.getItem('playerUUID');
         if (playerUUID != null) {
             this.socket.emit('connectWithUUID', playerUUID);
@@ -55,8 +54,9 @@ export default class MainMenu extends Phaser.Scene
             this.socket.emit('validateNewUUID', playerUUID);
         }
 
+        //DELETE ME- this is just for test purposes. 
         this.StartButton.setText(playerUUID);
-        //todo- disable start button while client attempts to connect to server. re-enable if something went horribly wrong :D
+        //TODO- disable start button while client attempts to connect to server. re-enable if something went horribly wrong :D
     }
 
     startButtonOver()
